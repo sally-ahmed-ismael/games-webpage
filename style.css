@@ -1,0 +1,324 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+:root {
+  --mainColor: white;
+  --secondColor: rgb(54, 121, 121);
+  --redColor: red;
+}
+header {
+  height: 100vh;
+  width: 100%;
+  background-image: url(./images/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+}
+header .container img {
+  width: 10%;
+}
+header .container ul {
+  display: flex;
+}
+header .container ul li {
+  margin: 10px;
+  list-style: none;
+}
+header .container ul a {
+  color: var(--mainColor);
+  text-decoration: none;
+}
+header .container ul a:hover {
+  color: var(--secondColor);
+  transition: 0.5s;
+}
+header .container ul button {
+  padding: 5px;
+}
+header .container ul button:hover {
+  color: var(--secondColor);
+  background-color: var(--mainColor);
+  transition: 0.5s;
+}
+header .content {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+}
+header .content .details {
+  color: var(--mainColor);
+  width: 40%;
+}
+header .content .details h2,
+h1,
+p,
+input {
+  margin: 5px;
+}
+header .content .details p {
+  line-height: 30px;
+  font-size: small;
+}
+header .content .details input {
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+}
+header .content .image img {
+  max-height: 400px;
+  border-radius: 18px;
+}
+
+header .content .image span:first-of-type {
+  color: var(--secondColor);
+  padding: 10px;
+  border-radius: 18px;
+  background-color: var(--redColor);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+header .content .image span:last-of-type {
+  color: var(--mainColor);
+  padding: 10px;
+  border-radius: 18px;
+  background-color: var(--secondColor);
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+header .content .image {
+  position: relative;
+}
+
+header .container label,
+#toggle {
+  display: none;
+}
+/* header media */
+@media (max-width: 991px) {
+  header{
+    height: fit-content;
+  }
+  header .container {
+    flex-wrap: wrap;
+    position: relative;
+    margin: auto;
+  }
+  header .container .menu {
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    z-index: 2;
+    transform: translateY(-100%);
+  }
+  header .container label {
+    display: block;
+    color: white;
+    font-size: 20px;
+    z-index: 3;
+  }
+  header .container ul {
+    flex-direction: column;
+  }
+  header .container #toggle:checked ~ .menu {
+    transform: translateY(15%);
+    transition: 0.5s;
+  }
+  header .container .menu button {
+    width: 80%;
+  }
+
+  header .content {
+    flex-direction: column;
+  }
+  header .content .details {
+    width: 100%;
+  }
+}
+
+/* /////////////////// */
+section.about {
+  margin: 20px 0;
+}
+section.about .title {
+  padding: 10px;
+  margin: auto;
+  border: 2px solid black;
+  border-radius: 15px;
+  width: fit-content;
+  position: relative;
+  overflow: hidden;
+}
+section.about .title::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--secondColor);
+  height: 100%;
+  width: 0;
+  transition: 0.5s;
+  z-index: -1;
+}
+section.about .title:hover::after {
+  width: 100%;
+}
+
+section.about .container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+section.about .container img {
+  width: 30%;
+}
+
+section.about .container .details {
+  text-align: center;
+  width: 40%;
+}
+section.about .container .details h1 {
+  background-color: var(--secondColor);
+  width: fit-content;
+  }
+
+@media (max-width: 991px) {
+  section.about .container{
+    margin:10% auto;
+    flex-direction: column;
+    gap:20px;
+  }
+  section.about .container .details {
+    width: 80%;
+  }
+}
+
+/* ///////////////////////// */
+section.trending {
+  margin: 20px auto;
+}
+section.trending .container .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section.trending .container .products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+section.trending .container .products .box {
+  background-color: rgb(197, 193, 193);
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+  height: 300px;
+}
+section.trending .container .products .box img {
+  width: 100%;
+  height: 80%;
+  transition: 0.5s;
+}
+section.trending .container .products .box:hover img {
+  transform: scale(1.2, 1);
+  overflow: hidden;
+}
+
+section.trending .container .products .box .price {
+  background-color: rgb(99, 143, 99);
+  padding: 5px;
+  color: var(--mainColor);
+  width: fit-content;
+  border-radius: 8px;
+  position: absolute;
+  top: 20px;
+  right: 0;
+  z-index: 2;
+}
+section.trending .container .products .box .details {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 5px;
+
+}
+section.trending .container .products .box .details h2{
+  padding-top: 10px;
+}
+/* /////////////////// */
+section.top-categories {
+  margin: 20px auto;
+}
+section.top-categories .container .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section.top-categories .container .products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+section.top-categories .container .products .box {
+  background-color: rgb(197, 193, 193);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  border-radius: 10px;
+  height: 300px;
+}
+section.top-categories .container .products .box img {
+  width: 100%;
+  height: 80%;
+  transition: 0.5s;
+}
+section.top-categories .container .products .box img:hover {
+  transform: translateY(-26%);
+}
+section.top-categories .container .products .box h2 {
+  text-align: center;
+  padding-top: 10px;
+}
+
+/* ////////////////// */
+footer .container{
+  background-color: var(--secondColor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+}
+footer .container img{
+  width: 20%;
+  height: 90%;
+}
+
+footer .container ul{
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap:10px;
+}
+footer .container ul a{
+  color: var(--mainColor);
+}
